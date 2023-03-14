@@ -1,20 +1,16 @@
-var combine = function(n, k) {
-    result = []
-    
-        const comb = (start, curComb) => {
-            if(curComb.length == k){
-                result.push( [...curComb] ) ;
-                return;
-            }
-            
-            for(let i = start; i <= n ; i++){
-                curComb.push( i );
-                comb(i+1, curComb );
-                curComb.pop();
-            }
-            return;
+var combine = function (n, k) {
+    let nums = Array.from({ length: k }, (_, i) => i + 1);
+    nums.push(n + 1);
+    let result = [];
+    let j = 0;
+    while (j < k) {
+        result.push(nums.slice(0, k));
+        j = 0;
+        while (j < k && nums[j + 1] == nums[j] + 1) {
+            nums[j] = j + 1;
+            j += 1;
         }
-    
-        comb(start=1, curComb=[]);
-        return result;
-    };
+        nums[j] += 1;
+    }
+    return result;
+}
