@@ -6,11 +6,8 @@ const [str, checkStr] = input.shift()
 const dummy = input.slice(0, str);
 const dummyCheck = input.map(n=>n.trim()).slice(str);
 
-let dummyMap = new Map();
-for(let i =0; i<dummy.length;i++){
-    dummyMap.set(dummy[i], 1);
-}
+let dummySet = new Set(dummy);
 
 console.log(dummyCheck.filter(el=>{
-    return dummyMap.has(el);
+    return dummySet.has(el)
 }).length)
