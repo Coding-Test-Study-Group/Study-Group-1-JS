@@ -13,3 +13,7 @@ for (const target of targets) {
 }
 
 console.log(count);
+
+///
+///
+https://www.acmicpc.net/problem/14425
